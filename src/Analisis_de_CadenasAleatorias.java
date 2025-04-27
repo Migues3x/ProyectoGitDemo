@@ -13,7 +13,6 @@ import java.util.Random;
 public class Analisis_de_CadenasAleatorias {
     
     public static void main(String[] args) {
-        // Caracteres permitidos: A-Z y 0-9
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder cadenaGenerada = new StringBuilder();
         Random random = new Random();
@@ -23,7 +22,7 @@ public class Analisis_de_CadenasAleatorias {
             int indice = random.nextInt(caracteres.length());
             cadenaGenerada.append(caracteres.charAt(indice));
         }
-        
+
         String original = cadenaGenerada.toString();
         String minusculas = original.toLowerCase();
         String invertida = new StringBuilder(original).reverse().toString();
@@ -36,13 +35,18 @@ public class Analisis_de_CadenasAleatorias {
         // Calcular raíz cuadrada redondeada
         double raizCuadrada = Math.sqrt(sumaASCII);
         int redondeado = (int) Math.round(raizCuadrada);
-        
+
+        // Usar el método de ProyectoGitDemo para contar letras y números
+        String conteo = ProyectoGitDemo.contarLetrasYNumeros(original);
+
         // Mostrar los resultados en una ventana
         String mensaje = "Cadena generada: " + original + "\n"
                        + "En minúsculas: " + minusculas + "\n"
                        + "Cadena invertida: " + invertida + "\n"
                        + "Suma de valores ASCII: " + sumaASCII + "\n"
-                       + "Raíz cuadrada redondeada: " + redondeado;
+                       + "Raíz cuadrada redondeada: " + redondeado + "\n"
+                       + conteo;
+
         JOptionPane.showMessageDialog(null, mensaje, "Resultado", JOptionPane.INFORMATION_MESSAGE);
     }
 }
